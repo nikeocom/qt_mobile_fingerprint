@@ -1,32 +1,19 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2019-01-28T03:24:41
-#
-#-------------------------------------------------
-
-QT       -= gui
-
-TARGET = qtfingerprint
-TEMPLATE = lib
-CONFIG += staticlib
-
-
 ios {
     LIBS += -framework Foundation
-    LIBS += -framework UIKit
-    LIBS += -framework MessageUI
     LIBS += -framework MobileCoreServices
     LIBS += -framework LocalAuthentication
 
-    OBJECTIVE_SOURCES += qtfingerprint_ios.mm
+    OBJECTIVE_SOURCES += qtfingerprint.mm
 }
 
 macx {
-   SOURCES +=  qtfingerprint_osx.cpp
+    LIBS += -framework Foundation
+    LIBS += -framework LocalAuthentication
+    OBJECTIVE_SOURCES += qtfingerprint.mm
 }
 
 android {
-
+   QT += androidextras
    SOURCES += qtfingerprint_android.cpp
 }
 
@@ -36,7 +23,6 @@ SOURCES += \
 
 HEADERS += \
         qtfingerprint.h
-unix {
-    target.path = /usr/lib
-    INSTALLS += target
-}
+
+
+OTHER_FILES += android/Fingerprint.java

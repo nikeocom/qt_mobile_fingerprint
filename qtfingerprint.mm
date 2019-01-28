@@ -1,7 +1,7 @@
 #include "qtfingerprint.h"
 
 #import <LocalAuthentication/LocalAuthentication.h>
-#import "UIKit/UIKit.h"
+//#import "UIKit/UIKit.h"
 #import "Foundation/Foundation.h"
 
 void QtFingerprint::start(const QString &reason)
